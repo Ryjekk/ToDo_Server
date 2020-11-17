@@ -1,0 +1,58 @@
+type Mutation {
+	createTask(taskInput: TaskInputData!): Task!
+	updateTask(id: ID!, taskInput: TaskInputData!): Task!
+	deleteTask(id: ID!): Task!
+	createUser(userInput: UserInputData!): User!
+	updateUser(userInput: UserUpdateInput!): User!
+	deleteUser(password: String!): User!
+}
+type Query {
+	getTasks: [Task!]!
+	getTask(id: ID!): Task!
+	login(email: String!, password: String!): AuthData!
+}
+
+input UserInputData {
+	name: String!
+	email: String!
+	password: String!
+}
+
+input UserUpdateInput {
+	name: String
+	email: String
+	password: String!
+	newPassword: String
+}
+
+input TaskInputData {
+	title: String!
+	subtitle: String
+	description: String
+	accomplished: Boolean
+}
+
+type AuthData {
+	userId: ID!
+	token: String!
+	tokenExpiration: Int!
+}
+
+type Task {
+	_id: ID!
+	title: String!
+	subtitle: String
+	description: String
+	accomplished: Boolean!
+	createdAt: String
+	updatedAt: String
+}
+
+type User {
+	_id: ID!
+	name: String!
+	email: String!
+	tasks: [Task!]!
+	createdAt: String
+	updatedAt: String
+}
