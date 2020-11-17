@@ -1,6 +1,7 @@
 # To-do Backend
-
 It's a early stage backend for Todo app.
+
+Project created with [MaciejGL](https://github.com/MaciejGL)
 
 ## Stack
 
